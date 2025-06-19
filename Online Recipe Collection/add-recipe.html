@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="add-recipe.css">
+    <style>
+        /* Popup styling */
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            z-index: 1000;
+            width: 300px;
+        }
+
+        .popup .close-btn {
+            background: green;
+            color: white;
+            border: none;
+            padding: 10px 10px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .popup .message {
+            margin-top: 10px;
+        }
+
+
+
+
+
+        .popup .close-btn {
+            background: green;
+            color: white;
+            border: none;
+            padding: 10px 10px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .popup .message {
+            margin-top: 10px;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5) !important;
+            display: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Navbar -->
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#recipes">Recipes</a>
+                    <div class="mega-menu">
+                        <a href="appetizers.html">Appetizers</a>
+                        <a href="main-dishes.html">Main Dishes</a>
+                        <a href="desserts.html">Desserts</a>
+                        <a href="beverages.html">Beverages</a>
+                    </div>
+                </li>
+                <li><a href="feedback.html">Feedbacks</a></li>
+
+                <!-- Login/Signup Links and Username Display -->
+                <div class="auth-links" id="auth-links">
+                    <a class="login" href="login.html">Login</a>
+                    <a class="signup" href="signup.html">Sign up</a>
+                    <span id="username-display" style="display: none;"></span>
+                    <a href="add-recipe.html" id="manage-button" style="display: none;" class="manage-button">Add Content</a>
+                    <a id="logout-button" href="#" style="display: none;" onclick="logout()">Logout</a>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="add-recipe.html" id="add-recipe-link" class="add-recipe-link">Add Recipe</a></li>
+            <li><a href="updaterecipe.html">Update Recipe</a></li>
+            <li><a href="viewrecipe.html">View Recipes</a></li>
+            <li><a href="removerecipe.html">Remove Recipe</a></li>
+        </ul>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Recipe Upload Form -->
+        <div class="form-container">
+            <h2>Add Your Recipe</h2>
+            <form id="recipe-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div>
+                        <label for="food-image">Food Image:</label>
+                        <input type="file" id="food-image" name="food-image" accept="image/*" required>
+                    </div>
+                    <div>
+                        <label for="recipe-name">Recipe Name:</label>
+                        <input type="text" id="recipe-name" name="recipe-name" placeholder="Enter the recipe name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="category">Category:</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="appetizer">Appetizer</option>
+                            <option value="main course">Main Course</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="beverage">Beverage</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="ingredients">Ingredients:</label>
+                        <textarea id="ingredients" name="ingredients" rows="4" placeholder="List ingredients here" required></textarea>
+                    </div>
+                </div>
+                <label for="recipe">Recipe Instructions:</label>
+                <textarea id="recipe" name="recipe" rows="6" placeholder="Describe the recipe steps" required></textarea>
+                <button type="submit">Upload Recipe</button>
+            </form>
+        </div>
+    </div>
+   
+    <!-- Popup -->
+    <div id="overlay"></div>
+    <div class="popup" id="popup">
+        <div class="message" id="popup-message"></div>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+
+    </div>
+    
+    <!-- Footer Section -->
+  
+   
+    <!-- JavaScript -->
+    <script>
+        const form = document.getElementById('recipe-form');
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popup-message');
+
+        // Form submission via AJAX
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+            const formData = new FormData(form);
+
+            fetch('add_recipe.php', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => response.text())
+                .then(message => {
+                    popupMessage.textContent = message;
+                    popup.style.display = 'block';
+
+                })
+                .catch(error => {
+                    popupMessage.textContent = 'An error occurred: ' + error;
+                    popup.style.display = 'block';
+                });
+        });
+
+        // Close popup and reset form
+        function closePopup() {
+            popup.style.display = 'none';
+            form.reset(); // Reset all form fields
+        }
+    </script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

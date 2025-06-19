@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="adminlogin.css">
+    <script src="adminlogin.js" defer></script>
+
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-container">
+            <h2 class="h2">Welcome to Quick Bites</h2>
+
+            <h2>Login</h2>
+            <!-- Error message container -->
+            <form id="loginForm" action="adminlogin.php" method="POST">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required placeholder="Enter your username">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <div id="error-message" style="color: red; margin-bottom: 10px; font-size: 12px; text-align: center;"></div>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <div class="admin-login">
+                <button class="admin-btn" onclick="window.location.href='login.html'">Login as a member</button>
+            </div>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#recipes">Recipes</a>
+                    <div class="mega-menu">
+                        <a href="appetizers.html">Appetizers</a>
+                        <a href="main-dishes.html">Main Dishes</a>
+                        <a href="desserts.html">Desserts</a>
+                        <a href="beverages.html">Beverages</a>
+                    </div>
+                </li>
+                <li><a href="feedback.html">Feedbacks</a></li>
+            </ul>
+            <div class="auth-links">
+                <a class="login" href="login.html">Login</a>
+                <a class="signup" href="signup.html">Sign up</a>
+            </div>
+        </div>
+        <div class="image-section">
+            <img src="https://cdn-ilbloll.nitrocdn.com/zXdfxzwWLrktqZRXPBVCmrekeknWjJaQ/assets/images/optimized/rev-eff27c1/feel-electric.com/wp-content/uploads/2024/02/young-woman-cooking-kitchen-1024x683.jpg" alt="Young Woman Cooking">
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.login-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    height: 80%;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 55px;
+}
+
+
+
+.login-container {
+    width: 50%;
+    padding: 40px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.input-group input:focus {
+    border-color: #ff6600;
+    outline: none;
+}
+
+.login-btn {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background-color: #ff4500;
+}
+
+.signup-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+text-align: center
+;}
+
+.signup-text a {
+    color: #ff6600;
+    text-decoration: none;
+
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+/* Admin Button Styling */
+.admin-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.admin-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Image Section */
+.image-section {
+    width: 50%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: 500px;
+}
+
+/* General reset for margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #52616f;
+    height: auto;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: white;
+    padding: 15px 30px; /* Increased padding for more space in the navbar */
+    display: flex;
+    justify-content: space-between; /* Distributes space between the left and right sections */
+    align-items: center;
+    position: fixed; /* Fixed navbar at the top */
+    top: 0;
+    left: 0;
+    height: 76px;
+    right: 0;
+    z-index: 100; /* Ensure navbar has higher stacking context */
+    width: 100%; /* Ensure navbar spans the entire width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow below the navbar */
+}
+.h2{
+    color: orange !important;
+    margin-top: -9px;
+    font-size: 28px !important;
+}
+
+/* Navbar Links Styling */
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* Vertically center items in navbar */
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 30px; /* Increased margin for more space between menu items */
+    position: relative; /* For positioning dropdown */
+}
+
+.navbar ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px; /* Increased font size for better readability */
+    padding: 12px 20px; /* Increased padding for more clickable area */
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    color: orange; /* Change font color to orange on hover */
+}
+
+/* Dropdown menu styling */
+.navbar .dropdown {
+    position: relative;
+}
+
+.navbar .dropdown .mega-menu {
+    display: none; /* Hide the dropdown initially */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    min-width: 200px;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 200; /* Increased z-index for the dropdown to ensure it is above other content */
+}
+
+.navbar .dropdown:hover .mega-menu {
+    display: block; /* Show dropdown when hovering */
+}
+
+.mega-menu a {
+    color: rgb(11, 11, 11);
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+}
+
+.mega-menu a:hover {
+    background-color: #575757;
+}
+
+/* Auth links (Login & Sign Up) */
+.auth-links {
+    display: flex;
+    align-items: center;
+right: 500px;
+}
+
+.auth-links .signup {
+    background-color: rgb(45, 45, 95); /* Set background color of Sign Up button to blue */
+    color: white;
+    margin-left: 21px;
+    margin-right: 49px;
+
+}
+.auth-links a {
+    color: black;
+    margin-left: 20px; /* Increased margin for more space between login and signup */
+    text-decoration: none;
+    font-size: 18px; /* Font size for auth links */
+    padding: 10px 15px; /* Added padding for better clickable area */
+    border-radius: 5px; /* Optional: rounded corners for links */
+    font-weight: bold;
+}
+
+.auth-links a:hover {
+    color: orange; /* Change font color to orange on hover */
+}
+
+/* Add top margin to body content to avoid overlap with navbar */
+body {
+    margin-top: 80px; /* This ensures the content doesn't get hidden under the fixed navbar */
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling for the recipe section */
+        .recipe-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 80px;
+        }
+
+        footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 83.5px;
+    width: auto;
+    height: 50px;
+}
+        /* Individual recipe card styling */
+        .recipe-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .recipe-card h3 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+
+        .recipe-card p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        .recipe-card button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .recipe-card button:hover {
+            background-color: #218838;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Arrows -->
+    <button class="arrow left-arrow" onclick="changeBackground('prev')">&#10094;</button>
+    <button class="arrow right-arrow" onclick="changeBackground('next')">&#10095;</button>
+
+    <!-- Navbar with Login -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="#recipes">Recipes</a>
+                <div class="mega-menu">
+                    <a href="appetizers.html">Appetizers</a>
+                    <a href="main-dishes.html">Main Dishes</a>
+                    <a href="desserts.html">Desserts</a>
+                    <a href="beverages.html">Beverages</a>
+                </div>
+            </li>
+            <li><a href="feedback.html">Feedbacks</a></li>
+
+            <!-- Login/Signup Links and Username Display -->
+            <div class="auth-links" id="auth-links">
+                <a class="login" href="login.html">Login</a>
+                <a class="signup" href="signup.html">Sign up</a>
+                <span id="username-display" style="display: none;"></span>
+                <a href="add-recipe.html" id="manage-button" style="display: none;" class="manage-button">Add Content</a>
+                <a id="logout-button" href="#" style="display: none;" onclick="logout()">Logout</a>
+            </div>
+        </ul>
+    </div>
+<!-- Main Content -->
+<div class="content">
+    <div class="image-content">
+        <div class="image-side">
+            <!-- Image with text overlay -->
+            <div class="image-container">
+                <img  class="blurred-image" src="https://images.unsplash.com/photo-1677175183792-e6a9b8b14305?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGRhcmslMjBmb29kJTIwcGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D" alt="Recipe Image">
+                <div class="vignette-overlay"></div>
+
+                <div class="text-overlay">
+                    <h1>Welcome to Quick Bites</h1>
+                    <p>Discover delicious recipes and elevate your cooking game!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Recipe List -->
+    <div class="recipe-list" id="recipe-list">
+        <!-- Recipe items will be dynamically inserted here -->
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

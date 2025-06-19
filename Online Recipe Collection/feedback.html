@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling for the recipe section */
+        .recipe-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Individual recipe card styling */
+        .recipe-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .recipe-card h3 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+
+        .recipe-card p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        .recipe-card button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .recipe-card button:hover {
+            background-color: #218838;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4a6b8a;
+            margin: 0;
+            padding: 0;
+        }
+
+        .feedback-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            height: 500px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 70px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 370px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            resize: vertical;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .feedback-list {
+            margin-top: 50px;
+        }
+
+        .feedback-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .feedback-item .feedback-text {
+            font-weight: bold;
+        }
+
+        .feedback-item .response-text {
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .feedback-item .response-text input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .feedback-item .response-text button {
+            margin-top: 5px;
+        }
+
+
+        /* Modal styles */
+.popup-modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.popup-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-ok-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.popup-ok-button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="#recipes">Recipes</a>
+                <div class="mega-menu">
+                    <a href="appetizers.html">Appetizers</a>
+                    <a href="main-dishes.html">Main Dishes</a>
+                    <a href="desserts.html">Desserts</a>
+                    <a href="beverages.html">Beverages</a>
+                </div>
+            </li>
+            <li><a href="feedback.html">Feedbacks</a></li>
+            <div class="auth-links" id="auth-links">
+                <a class="login" href="login.html">Login</a>
+                <a class="signup" href="signup.html">Sign up</a>
+                <span id="username-display" style="display: none;"></span>
+                <a href="add-recipe.css" id="manage-button" style="display: none;" class="manage-button">Add Content</a>
+                <a id="logout-button" href="#" style="display: none;" onclick="logout()">Logout</a>
+            </div>
+        </ul>
+    </div>
+
+    <div class="feedback-container">
+        <!-- Feedback Form -->
+        <h2>Submit Your Feedback</h2>
+        <form id="feedback-form" action="feedback.php" method="POST">
+            <textarea name="feedback" id="feedback" placeholder="Write your feedback..." required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+        
+        <div id="response-message"></div>
+    </div>
+
+    <div id="popupModal" class="popup-modal">
+        <div class="popup-modal-content">
+            <p id="popupMessage"></p>
+            <button id="popupOkButton" class="popup-ok-button">OK</button>
+        </div>
+    </div>
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const logoutButton = document.getElementById("logout-button");
+    const manageButton = document.getElementById("manage-button");
+
+    // Function to check if the user is logged in and not an admin
+    function isUserLoggedIn() {
+        // If "logoutButton" is visible, the user is logged in
+        // If "manageButton" is visible, it's an admin user
+        return logoutButton.style.display !== "none" && manageButton.style.display === "none";
+    }
+
+    document.getElementById("feedback-form").addEventListener("submit", function(event) {
+        event.preventDefault();  // Prevent the form from submitting the traditional way
+
+        // Check if the user is logged in and not an admin
+        if (logoutButton.style.display === "none") {
+            showModal("You must be logged in to submit feedback.");
+            return; // Stop the form submission if not logged in
+        }
+
+        if (manageButton.style.display !== "none") {
+            showModal("Admins cannot send feedback. Please log in as a regular user.");
+            return; // Stop the form submission if the user is an admin
+        }
+
+        var feedback = document.getElementById("feedback").value;
+
+        // Perform the AJAX request to submit feedback
+        fetch("feedback.php", {
+            method: "POST",
+            body: new URLSearchParams({ "feedback": feedback })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Show the success popup
+                showModal("Feedback submitted successfully!");
+                document.getElementById("feedback").value = ""; // Clear the feedback field
+            } else {
+                // Handle error (optional)
+                showModal("Error: " + data.error);
+            }
+        })
+        .catch(error => {
+            showModal("Error: " + error.message);
+        });
+    });
+
+    // Function to show the modal popup
+    function showModal(message) {
+        document.getElementById('popupMessage').innerText = message;
+        document.getElementById('popupModal').style.display = 'flex'; // Show the modal
+    }
+
+    // Close the modal when the "OK" button is clicked
+    document.getElementById('popupOkButton').addEventListener('click', function() {
+        document.getElementById('popupModal').style.display = 'none'; // Hide the modal
+    });
+});
+
+
+    </script>
+        <script src="script.js"></script>
+
+    
+</body>
+</html>

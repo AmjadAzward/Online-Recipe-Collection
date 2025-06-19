@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Recipe</title>
+    <link rel="stylesheet" href="viewrecipes.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            position: fixed;
+
+        }
+
+        .form-container {
+            display: flex;
+            gap: 20px;
+            position: fixed;
+            height: 500px;
+            margin-left: 1020px;
+            margin-top: -110px;
+
+        }
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-section label {
+            font-weight: bold;
+        }
+
+        .form-section textarea,
+        .form-section input,
+        .form-section select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #image-preview-box {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        #image-preview-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            z-index: 1000;
+            width: 300px;
+        }
+
+        .popup .close-btn {
+            background: green;
+            color: white;
+            border: none;
+            padding: 10px 10px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .popup .message {
+            margin-top: 10px;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Navbar -->
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#recipes">Recipes</a>
+                    <div class="mega-menu">
+                        <a href="appetizers.html">Appetizers</a>
+                        <a href="main-dishes.html">Main Dishes</a>
+                        <a href="desserts.html">Desserts</a>
+                        <a href="beverages.html">Beverages</a>
+                    </div>
+                </li>
+                <li><a href="feedback.html">Feedbacks</a></li>
+
+                <!-- Login/Signup Links and Username Display -->
+                <div class="auth-links" id="auth-links">
+                    <a class="login" href="login.html">Login</a>
+                    <a class="signup" href="signup.html">Sign up</a>
+                    <span id="username-display" style="display: none;"></span>
+                    <a href="add-recipe.html" id="manage-button" style="display: none;" class="manage-button">Add Content</a>
+                    <a id="logout-button" href="#" style="display: none;" onclick="logout()">Logout</a>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="add-recipe.html">Add Recipe</a></li>
+            <li><a href="updaterecipe.html" class="active">Update Recipe</a></li>
+            <li><a href="viewrecipe.html">View Recipes</a></li>
+            <li><a href="removerecipe.html">Remove Recipe</a></li>
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <div class="recipe-list-section">
+            <label for="recipe-category">Filter by Category:</label>
+            <select id="recipe-category" name="recipe-category" onchange="filterRecipes()">
+
+            </select>
+    
+            <label for="recipe-list">Recipes:</label>
+            <select id="recipe-list" name="recipe-list" size="20">
+                <!-- Recipe list will be dynamically updated -->
+            </select>
+        </div>
+
+
+        
+
+
+    <div class="container">
+        <div class="form-container">
+            <!-- Left Section -->
+            <div class="form-section">
+                <label for="recipe-image">Recipe Image:</label>
+                <input type="file" id="recipe-image" name="recipe-image" accept="image/*" required>
+                <div id="image-preview-box">
+                    <img id="image-preview" src="" alt="Image Preview">
+                </div>
+
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients" rows="6" placeholder="List ingredients here" required></textarea>
+            </div>
+
+            <!-- Right Section -->
+            <div class="form-section">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="appetizer">Appetizer</option>
+                    <option value="main_course">Main Course</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="beverage">Beverage</option>
+                </select>
+
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" id="recipe-name" name="recipe-name" placeholder="Enter recipe name" required>
+
+                <label for="recipe">Recipe Instructions:</label>
+                <textarea id="recipe" name="recipe" rows="13" placeholder="Describe the recipe steps" required></textarea>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+    <div class="popup" id="popup">
+        <button class="close-btn" onclick="closePopup()">Close</button>
+        <div class="message" id="popup-message"></div>
+    </div>
+    <!-- JavaScript -->
+    <script src="viewrecipe.js"></script>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

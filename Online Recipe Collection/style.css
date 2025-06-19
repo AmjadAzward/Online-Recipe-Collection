@@ -1,0 +1,343 @@
+/* General reset for margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #849baf;
+}
+
+.image-container {
+    margin-left: -100px;
+    position: relative;
+    display: inline-block;
+    width: 1582px; /* Optional for scaling */
+    margin-top: -50px;
+    height: 635px;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+
+.vignette-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow interaction with the image */
+    background: linear-gradient(to right, rgba(0, 0, 1, 1), transparent, rgba(0, 0, 1, 1));
+
+}
+
+
+.text-overlay {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    color: rgb(255, 255, 255);
+    text-align: center;
+font-family: sans-serif;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 10px; /* Optional for aesthetics */
+    width: 600px; /* Fixed width for the overlay */
+    height: 200px; /* Fixed height for the overlay */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    margin-top: 30px;
+}
+
+
+.manage-button {
+    display: inline-block;
+    padding: 10px 20px;  /* Adjust padding for proper sizing */
+    background-color: rgb(45, 45, 95);  /* Set background color */
+    color: rgb(255, 255, 255) !important;  /* Text color is white */
+    border-radius: 5px;  /* Rounded corners */
+    text-decoration: none;  /* Remove underline */
+    font-size: 16px;  /* Font size */
+    font-weight: bold;  /* Bold text */
+    text-align: center;  /* Center the text */
+    white-space: nowrap;  /* Prevent text from wrapping */
+    overflow: hidden;  /* Hide anything outside the button's bounds */
+    text-overflow: ellipsis;  /* Show ellipsis if text is too long */
+    max-width: 100%;  /* Prevent overflow beyond the parent container */
+    box-sizing: border-box;  /* Include padding in width/height calculation */
+    transition: all 0.3s ease;  /* Smooth hover effect */
+    margin-left: -20px !important;
+}
+
+
+/* Hover effect */
+.manage-button:hover {
+    color: orange;  /* Change text color to orange on hover */
+    background-color: rgb(30, 30, 70);  /* Darker background on hover */
+}
+
+
+/* Hover effect */
+.manage-button:hover {
+    background-color: #0056b3;
+    color: orange !important;    /* Darker blue on hover */
+}
+
+/* Optional: Button shadow for depth */
+.manage-button {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Shadow around the button */
+}
+
+
+/* Navbar Styling */
+.navbar {
+    background-color: rgb(255, 255, 255);
+    padding: 15px 30px; /* Increased padding for more space in the navbar */
+    display: flex;
+    justify-content: space-between; /* Distributes space between the left and right sections */
+    align-items: center;
+    position: relative; /* Added to ensure the navbar itself has stacking context */
+    z-index: 100; /* Ensure navbar has higher stacking context */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* Vertically center items in navbar */
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 30px; /* Increased margin for more space between menu items */
+    position: relative; /* For positioning dropdown */
+}
+
+.navbar ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px; /* Increased font size for better readability */
+    padding: 12px 20px; /* Increased padding for more clickable area */
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    color: orange; /* Change font color to orange on hover */
+}
+
+/* Dropdown menu styling */
+.navbar .dropdown {
+    position: relative;
+}
+
+.navbar .dropdown .mega-menu {
+    display: none; /* Hide the dropdown initially */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    min-width: 200px;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 200; /* Increased z-index for the dropdown to ensure it is above other content */
+}
+
+.navbar .dropdown:hover .mega-menu {
+    display: block; /* Show dropdown when hovering */
+}
+
+.mega-menu a {
+    color: rgb(11, 11, 11);
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+}
+
+.mega-menu a:hover {
+    background-color: #575757;
+}
+
+/* Auth links (Login & Sign Up) */
+.auth-links {
+    display: flex;
+    align-items: center;
+    margin-left: 638px; /* Pushes auth links to the right */
+}
+
+.auth-links .signup {
+    background-color: rgb(45, 45, 95); /* Set background color of Sign Up button to blue */
+    color: white;
+}
+.auth-links a {
+    color: black;
+    margin-left: 20px; /* Increased margin for more space between login and signup */
+    text-decoration: none;
+    font-size: 18px; /* Font size for auth links */
+    padding: 10px 15px; /* Added padding for better clickable area */
+    border-radius: 5px; /* Optional: rounded corners for links */
+    font-weight: bold;
+}
+
+.auth-links a:hover {
+    color: orange; /* Change font color to orange on hover */
+}
+
+/* Arrows for background change */
+.arrow {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-60%);
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.left-arrow {
+    left: 20px;
+    margin-top: 55px;
+}
+
+.right-arrow {
+    right: 20px;
+    margin-top: 55px;
+
+}
+
+/* Main Content Styling */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.image-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    margin-left: 35px;
+}
+
+.image-side {
+    flex: 1;
+    position: relative;
+}
+
+.image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the area of the div */
+}
+
+.text-side {
+    flex:1;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);   
+     color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 258px;
+    margin-right: 35px;
+    height: 517px;
+}
+
+.text-side h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.text-side p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Styling for the buttons */
+button {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+}
+
+
+
+/* Recipe List Section */
+#recipe-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Gap between cards */
+    justify-content: center;
+    margin-top: px;
+    padding: 20px;
+    max-width: 1200px; /* Restrict the width of the recipe section */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styling for individual recipe items */
+.recipe-item {
+    background-color: #fff;
+    padding: 20px;
+    width: 48%; /* Two items per row */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensures content starts from the top */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Recipe Image Styling */
+.recipe-item img {
+    width: 100%;
+    height: 300px; /* Fixed height for images */
+    object-fit: cover; /* Ensures the image fills the area without distortion */
+    border-radius: 10px;
+}
+
+/* Recipe Name and Description */
+.recipe-item h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #333;
+}
+
+.recipe-item p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px; /* Adds spacing between the description and the next element */
+}
+
+/* Optional: Hover effect for better interactivity */
+.recipe-item:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .recipe-item {
+        width: 100%; /* Full width on smaller screens */
+    }
+}

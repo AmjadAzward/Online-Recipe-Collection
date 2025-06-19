@@ -1,0 +1,389 @@
+
+
+
+
+
+.container {
+    display: flex;
+    justify-content: start;
+    padding: 20px;
+    gap: 20px;
+    position: relative;
+}
+
+.recipe-list-section {
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: -400px;
+    z-index: 1000;
+}
+
+.recipe-list-section label {
+    font-weight: bold;
+}
+
+.recipe-list-section select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.recipe-list-section {
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.recipe-list-section label {
+    font-weight: bold;
+}
+
+.recipe-list-section select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 200px;
+    margin-top: 90px;
+    width: 800px;
+    height: 590px;
+}
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 800px;
+}
+.form-container h2 {
+    text-align: center;
+    color: #333;
+}
+.form-container label {
+    font-size: 14px;
+    color: #555;
+}
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.form-container input[type="text"],
+.form-container input[type="file"],
+.form-container textarea,
+.form-container select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-container textarea {
+    width: 100%;
+}
+.form-container button {
+    background-color: #ff6600;
+    color: white;
+    font-size: 18px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.form-container button:hover {
+    background-color: #ff4500;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* General Styling for Body */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #4a6b8a;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);   
+    color: white;
+    transform: translateY(-50%);
+margin-top: 375px;
+    padding: 20px;
+    margin-right: 1246px;
+    position: fixed;
+    top: 60px; /* Push sidebar down below the fixed navbar */
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757 ;
+}
+
+
+.add-recipe-link{
+    background-color: #232127 !important; /* Your preferred color */
+}
+/* Main Content Styling */
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+    width: calc(100% - 270px);
+    margin-top: 80px; /* Add margin to the top to prevent overlap with the fixed navbar */
+}
+
+.page-header {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input, form textarea, form select, form button {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: white;
+    padding: 15px 30px; /* Increased padding for more space in the navbar */
+    display: flex;
+    justify-content: space-between; /* Distributes space between the left and right sections */
+    align-items: center;
+    position: fixed; /* Fixed position */
+    top: 0; /* Aligns navbar at the top of the page */
+    left: 0; /* Aligns navbar to the left edge */
+    right: 0; /* Aligns navbar to the right edge */
+    z-index: 100; /* Ensure navbar has higher stacking context */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* This ensures links are displayed in a row */
+    align-items: center; /* Vertically center items in navbar */
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 30px; /* Increased margin for more space between menu items */
+}
+
+.navbar ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px; /* Increased font size for better readability */
+    padding: 12px 20px; /* Increased padding for more clickable area */
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    color: orange; /* Change font color to orange on hover */
+}
+
+/* Dropdown menu styling */
+.navbar .dropdown {
+    position: relative;
+}
+
+.navbar .dropdown .mega-menu {
+    display: none; /* Hide the dropdown initially */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    min-width: 200px;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 200; /* Increased z-index for the dropdown to ensure it is above other content */
+}
+
+.navbar .dropdown:hover .mega-menu {
+    display: block; /* Show dropdown when hovering */
+}
+
+.mega-menu a {
+    color: rgb(11, 11, 11);
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+}
+
+.mega-menu a:hover {
+    background-color: #575757;
+}
+
+/* Auth links (Login & Sign Up) */
+.auth-links {
+    display: flex;
+    align-items: center;
+    margin-left: 638px; /* Pushes auth links to the right */
+}
+
+.auth-links .signup {
+    background-color: rgb(45, 45, 95); /* Set background color of Sign Up button to blue */
+    color: white;
+}
+
+.auth-links a {
+    color: black;
+    margin-left: 20px; /* Increased margin for more space between login and signup */
+    text-decoration: none;
+    font-size: 18px; /* Font size for auth links */
+    padding: 10px 15px; /* Added padding for better clickable area */
+    border-radius: 5px; /* Optional: rounded corners for links */
+    font-weight: bold;
+}
+
+.auth-links a:hover {
+    color: orange; /* Change font color to orange on hover */
+}
+
+.manage-button {
+    display: inline-block;
+    padding: 10px 20px;  /* Adjust padding for proper sizing */
+    background-color: rgb(45, 45, 95);  /* Set background color */
+    color: rgb(255, 255, 255) !important;  /* Text color is white */
+    border-radius: 5px;  /* Rounded corners */
+    text-decoration: none;  /* Remove underline */
+    font-size: 16px;  /* Font size */
+    font-weight: bold;  /* Bold text */
+    text-align: center;  /* Center the text */
+    white-space: nowrap;  /* Prevent text from wrapping */
+    overflow: hidden;  /* Hide anything outside the button's bounds */
+    text-overflow: ellipsis;  /* Show ellipsis if text is too long */
+    max-width: 100%;  /* Prevent overflow beyond the parent container */
+    box-sizing: border-box;  /* Include padding in width/height calculation */
+    transition: all 0.3s ease;  /* Smooth hover effect */
+    margin-left: -20px !important;
+}
+
+
+/* Hover effect */
+.manage-button:hover {
+    color: orange;  /* Change text color to orange on hover */
+    background-color: rgb(30, 30, 70);  /* Darker background on hover */
+}
+
+
+/* Hover effect */
+.manage-button:hover {
+    background-color: #0056b3;
+    color: orange !important;    /* Darker blue on hover */
+}
+
+/* Optional: Button shadow for depth */
+.manage-button {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Shadow around the button */
+}
